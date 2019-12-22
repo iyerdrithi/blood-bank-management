@@ -1,0 +1,139 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+
+<!--Font Awesome (added because you use icons in your prepend/append)-->
+<link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css" />
+
+<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+<!-- Extra JavaScript/CSS added manually in "Settings" tab -->
+<!-- Include jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+<body>
+  <picture>
+    <img src="picture1.png" class = "rounded mx-auto d-block" align = "middle" class="blood" alt="blood" height="130" width="130">
+  </picture>
+  <h4 class="text-center">
+    Blood Bank Management System
+  </h4>
+  <ul class="nav justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="portal.php">Facility Info</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="bloodrequests.php">Blood Requests</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="requestform.html">Request Form</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Contact Us</a>
+  </li>
+</ul>
+<br>
+<p class="text-center"> Blood Request Form </p> <br>
+
+<div align="center">
+<form action= "requestform.php" method="post">
+  <div class="form-row">
+</form>
+<div class="bootstrap-iso"> </div>
+ <div class="container-fluid"> </div>
+<div class="d-flex justify-content-center align-items-center container">
+<form action= "requestform.php" method="post" class="justify-content-center">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="todays_date">Today's Date</label>
+
+      <input class="form-control" id="todays_date" name="todays_date" placeholder="MM/DD/YYYY" type="text" style="width: 250px;"/>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="blood_type">Blood Type Required</label>
+      <select class="custom-select" name="blood_type" style="width: 250px;">
+        <option> Blood Type </option>
+        <option> O+ </option>
+        <option> O- </option>
+        <option> A+ </option>
+        <option> A- </option>
+        <option> B+ </option>
+        <option> B- </option>
+        <option> AB+ </option>
+        <option> AB- </option>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="blood">Blood</label>
+      <select class="custom-select" name="blood" style="width: 250px;">
+        <option> Blood </option>
+
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="quanity">Quantity Required (in mL)</label>
+      <input type="text" class="form-control" name="quantity" placeholder="Quantity" style="width: 250px;">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="date_required">Date Required</label>
+      <input class="form-control" id="date_required" name="date_required" placeholder="MM/DD/YYYY" type="text" style="width: 250px;"/>
+    </div>
+  </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="urgent_request">
+        <label class="form-check-label" for="urgent_request">
+          Check if the blood required is an urgent request
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="urgent_request">
+        <label class="form-check-label" for="urgent_request">
+          I certify that the details are accurate on this form
+        </label>
+      </div>
+    </div>
+    <br>
+    <div class="text-center">
+    <button type="submit" name="submit" class="btn btn-danger mb-2">Submit</button>
+  </div>
+
+
+
+  <script>
+  	$(document).ready(function(){
+  		var date_input=$('input[name="todays_date"]'); //our date input has the name "date"
+  		var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+  		date_input.datepicker({
+  			format: 'mm/dd/yyyy',
+  			container: container,
+  			todayHighlight: true,
+  			autoclose: true,
+  		})
+  	})
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date_required"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      date_input.datepicker({
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      })
+    })
+  </script>
